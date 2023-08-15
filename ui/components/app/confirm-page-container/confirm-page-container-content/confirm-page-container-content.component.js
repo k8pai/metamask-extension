@@ -7,7 +7,6 @@ import Button from '../../../ui/button';
 ///: END:ONLY_INCLUDE_IN
 import ActionableMessage from '../../../ui/actionable-message/actionable-message';
 import { PageContainerFooter } from '../../../ui/page-container';
-import ErrorMessage from '../../../ui/error-message';
 import { INSUFFICIENT_FUNDS_ERROR_KEY } from '../../../../helpers/constants/error-keys';
 import Typography from '../../../ui/typography';
 import { TypographyVariant } from '../../../../helpers/constants/design-system';
@@ -19,6 +18,7 @@ import BlockaidBannerAlert from '../../security-provider-banner-alert/blockaid-b
 import SecurityProviderBannerMessage from '../../security-provider-banner-message/security-provider-banner-message';
 
 import { ConfirmPageContainerSummary, ConfirmPageContainerWarning } from '.';
+import { BannerAlert } from '../../../component-library';
 
 export default class ConfirmPageContainerContent extends Component {
   static contextTypes = {
@@ -257,7 +257,7 @@ export default class ConfirmPageContainerContent extends Component {
           !showInsuffienctFundsError &&
           (errorKey || errorMessage) && (
             <div className="confirm-page-container-content__error-container">
-              <ErrorMessage errorMessage={errorMessage} errorKey={errorKey} />
+              <BannerAlert errorMessage={errorMessage} errorKey={errorKey} />
             </div>
           )}
         {showInsuffienctFundsError && (

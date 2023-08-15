@@ -4,7 +4,6 @@ import { EditGasModes, PriorityLevels } from '../../../../shared/constants/gas';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { useTransactionModalContext } from '../../../contexts/transaction-modal';
 import Box from '../../ui/box';
-import ErrorMessage from '../../ui/error-message';
 import Popover from '../../ui/popover';
 
 import {
@@ -15,7 +14,7 @@ import { INSUFFICIENT_FUNDS_ERROR_KEY } from '../../../helpers/constants/error-k
 import { useGasFeeContext } from '../../../contexts/gasFee';
 import AppLoadingSpinner from '../app-loading-spinner';
 import ZENDESK_URLS from '../../../helpers/constants/zendesk-url';
-import { Text } from '../../component-library';
+import { BannerAlert, Text } from '../../component-library';
 import EditGasItem from './edit-gas-item';
 import NetworkStatistics from './network-statistics';
 
@@ -52,7 +51,7 @@ const EditGasFeePopover = () => {
           <div className="edit-gas-fee-popover__content">
             <Box>
               {balanceError && (
-                <ErrorMessage errorKey={INSUFFICIENT_FUNDS_ERROR_KEY} />
+                <BannerAlert errorKey={INSUFFICIENT_FUNDS_ERROR_KEY} />
               )}
               <div className="edit-gas-fee-popover__content__header">
                 <span className="edit-gas-fee-popover__content__header-option">

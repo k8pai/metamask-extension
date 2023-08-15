@@ -20,6 +20,7 @@ import {
 import Address from './components/decoding/address';
 import CopyRawData from './components/ui/copy-raw-data';
 import Accreditation from './components/ui/accreditation';
+import { BannerAlert } from '../../component-library';
 
 export default function TransactionDecoding({ to = '', inputData: data = '' }) {
   const t = useContext(I18nContext);
@@ -218,7 +219,7 @@ export default function TransactionDecoding({ to = '', inputData: data = '' }) {
     if (hasError) {
       return (
         <div className="tx-insight-error">
-          <ErrorMessage errorMessage={errorMessage} />
+          <BannerAlert errorMessage={errorMessage} />
         </div>
       );
     }
